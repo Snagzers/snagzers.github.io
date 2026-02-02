@@ -21,7 +21,6 @@
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            /* Magenta to Cyan Porygon Palette */
             background: linear-gradient(-45deg, #ff00ff, #00ffff, #ff77ff, #77ffff);
             background-size: 400% 400%;
             animation: gradientBG 10s ease infinite;
@@ -70,12 +69,11 @@
             display: block;
         }
 
-        /* Bio & Fandoms Section */
         .bio-box {
             background: rgba(255, 255, 255, 0.4);
             padding: 20px;
             border-radius: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-size: 0.95rem;
             line-height: 1.6;
             color: #222;
@@ -100,9 +98,63 @@
         }
 
         .fandom-item i {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             color: #ff00ff;
+        }
+
+        /* Music Player Styles */
+        .music-player {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .album-art {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: #ff00ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .track-info {
+            flex-grow: 1;
+        }
+
+        .track-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .artist-name {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 2px;
+            margin-top: 8px;
+            position: relative;
+        }
+
+        .progress-fill {
+            width: 65%;
+            height: 100%;
+            background: #ff00ff;
+            border-radius: 2px;
         }
 
         .links-wrapper {
@@ -137,7 +189,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* Link Brand Accents */
         .yt:hover { color: #FF0000; border-bottom: 3px solid #FF0000; }
         .gh:hover { color: #24292e; border-bottom: 3px solid #24292e; }
         .dc:hover { color: #5865F2; border-bottom: 3px solid #5865F2; }
@@ -169,6 +220,20 @@
             </div>
         </div>
 
+        <div class="music-player">
+            <div class="album-art">
+                <i data-lucide="music"></i>
+            </div>
+            <div class="track-info">
+                <span class="track-name">Digital Silence</span>
+                <span class="artist-name">Peter McIsaac Music</span>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            <i data-lucide="play" style="width: 20px; opacity: 0.8;"></i>
+        </div>
+
         <div class="links-wrapper">
             <a href="https://youtube.com/" class="link-card yt" target="_blank">
                 <i data-lucide="youtube"></i> YouTube
@@ -176,18 +241,17 @@
             <a href="https://github.com/" class="link-card gh" target="_blank">
                 <i data-lucide="github"></i> GitHub
             </a>
-            <a href="https://discord.com/" class="link-card dc" target="_blank">
+            <a href="https://discord.gg/YOUR_INVITE_CODE" class="link-card dc" target="_blank">
                 <i data-lucide="message-square"></i> Discord
             </a>
         </div>
 
         <div class="footer">
-            PRETEND THIS IS IMPORTANT
+            PRETEND THIS IS IMPORTANT (if the discord link doesn't work, DM me ASAP!)
         </div>
     </div>
 
     <script>
-        // Initializes the icons
         lucide.createIcons();
     </script>
 </body>
