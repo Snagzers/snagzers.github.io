@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snag | Links</title>
+    <title>Snag | Home</title>
     <style>
-        /* Modern Reset */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,53 +13,71 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            /* Gradient inspired by Porygon's colors */
+            /* Porygon-inspired Gradient */
             background: linear-gradient(135deg, #f08a9d 0%, #7dc9e2 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             color: #1a1a1a;
+            padding: 20px;
         }
 
-        /* Glassmorphism Container */
         .container {
-            width: 90%;
-            max-width: 420px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 40px 20px;
-            border-radius: 24px;
+            width: 100%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 35px 25px;
+            border-radius: 30px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        /* Profile Section */
+        /* Glitch Animation for Porygon */
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
         .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: white; /* Makes the transparent PNG pop */
-            border: 4px solid #fff;
-            margin-bottom: 20px;
-            object-fit: contain; /* Keeps Porygon from being cropped weirdly */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 110px;
+            height: 110px;
+            border-radius: 20%; /* Slightly squared for the Porygon look */
+            background: white;
+            padding: 10px;
+            margin-bottom: 15px;
+            object-fit: contain;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-img:hover {
+            animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
         }
 
         h1 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            font-size: 1.7rem;
+            margin-bottom: 5px;
+            font-weight: 800;
         }
 
-        .tagline {
-            font-size: 1rem;
-            color: #444;
-            margin-bottom: 30px;
+        /* Bio Section */
+        .bio-box {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #333;
+            border: 1px dashed #f08a9d;
         }
 
-        /* Links List */
         .links-wrapper {
             display: flex;
             flex-direction: column;
@@ -71,46 +88,54 @@
             background: #ffffff;
             color: #1a1a1a;
             padding: 16px;
-            border-radius: 14px;
+            border-radius: 15px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Hover Interaction */
+        /* Specific Hover Colors */
         .link-card:hover {
-            transform: scale(1.03);
-            background: #1a1a1a;
-            color: #ffffff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            color: white;
         }
 
-        /* Small Footer */
+        .yt:hover { background-color: #FF0000; }
+        .gh:hover { background-color: #24292e; }
+        .dc:hover { background-color: #5865F2; }
+
         .footer {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            opacity: 0.6;
+            margin-top: 25px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="4229-removebg-preview.png" alt="Snag Profile" class="profile-img">
+        <img src="4229-removebg-preview.png" alt="Snag" class="profile-img">
         
         <h1>Snag</h1>
-        <p class="tagline">Digital Entity // Link in Bio</p>
+        
+        <div class="bio-box">
+            Hey! I'm Snag. I like exploring digital spaces, coding random things, and hanging out in the virtual world. Catch me on the links below!
+        </div>
 
         <div class="links-wrapper">
-            <a href="#" class="link-card">Discord Server</a>
-            <a href="#" class="link-card">Portfolio</a>
-            <a href="#" class="link-card">Twitter / X</a>
-            <a href="#" class="link-card">Steam Profile</a>
+            <a href="https://youtube.com/@yourchannel" class="link-card yt" target="_blank">YouTube</a>
+            <a href="https://github.com/yourusername" class="link-card gh" target="_blank">GitHub</a>
+            <a href="https://discord.gg/yourlink" class="link-card dc" target="_blank">Discord</a>
         </div>
 
         <div class="footer">
-            © 2026 Snag
+            Loaded in v1.0
         </div>
     </div>
 
