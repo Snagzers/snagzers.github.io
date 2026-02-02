@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snag | Home</title>
+    <title>Snag | Linktree</title>
     <style>
         * {
             box-sizing: border-box;
@@ -11,10 +11,19 @@
             padding: 0;
         }
 
+        /* Moving Background Animation */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            /* Porygon-inspired Gradient */
-            background: linear-gradient(135deg, #f08a9d 0%, #7dc9e2 100%);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            /* Trippy moving gradient */
+            background: linear-gradient(-45deg, #f08a9d, #7dc9e2, #2d3436, #0984e3);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,57 +34,60 @@
 
         .container {
             width: 100%;
-            max-width: 400px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            padding: 35px 25px;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px 25px;
             border-radius: 30px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        /* Glitch Animation for Porygon */
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .profile-img {
             width: 110px;
             height: 110px;
-            border-radius: 20%; /* Slightly squared for the Porygon look */
+            border-radius: 25px;
             background: white;
-            padding: 10px;
+            padding: 5px;
             margin-bottom: 15px;
             object-fit: contain;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .profile-img:hover {
-            animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
         }
 
         h1 {
-            font-size: 1.7rem;
-            margin-bottom: 5px;
-            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 2px;
         }
 
-        /* Bio Section */
+        .pronouns {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #555;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Bio & Fandoms Section */
         .bio-box {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 15px;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border-radius: 20px;
             margin-bottom: 25px;
             font-size: 0.95rem;
-            line-height: 1.5;
-            color: #333;
-            border: 1px dashed #f08a9d;
+            line-height: 1.6;
+            color: #222;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .fandoms {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            font-size: 0.85rem;
+            font-style: italic;
         }
 
         .links-wrapper {
@@ -85,34 +97,30 @@
         }
 
         .link-card {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.9);
             color: #1a1a1a;
             padding: 16px;
             border-radius: 15px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.25s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0,0,0,0.05);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
         }
 
-        /* Specific Hover Colors */
         .link-card:hover {
-            transform: translateY(-3px);
-            color: white;
+            transform: scale(1.02);
+            background: #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .yt:hover { background-color: #FF0000; }
-        .gh:hover { background-color: #24292e; }
-        .dc:hover { background-color: #5865F2; }
+        /* Link Brand Accents */
+        .yt:hover { border-left: 8px solid #FF0000; }
+        .gh:hover { border-left: 8px solid #24292e; }
+        .dc:hover { border-left: 8px solid #5865F2; }
 
         .footer {
-            margin-top: 25px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-top: 30px;
+            font-size: 0.7rem;
             opacity: 0.5;
         }
     </style>
@@ -123,19 +131,24 @@
         <img src="4229-removebg-preview.png" alt="Snag" class="profile-img">
         
         <h1>Snag</h1>
+        <span class="pronouns">he / him</span>
         
         <div class="bio-box">
-            Hey! I'm Snag. I like exploring digital spaces, coding random things, and hanging out in the virtual world. Catch me on the links below!
+            Hey! I'm a coder who loves starting new projects (finishing them is a different story). Always vibing in digital spaces or thinking about the stars. 
+            
+            <div class="fandoms">
+                <b>Interests:</b> Pikmin, Deltarune/Undertale, Subnautica, & Space.
+            </div>
         </div>
 
         <div class="links-wrapper">
-            <a href="https://youtube.com/@yourchannel" class="link-card yt" target="_blank">YouTube</a>
-            <a href="https://github.com/yourusername" class="link-card gh" target="_blank">GitHub</a>
-            <a href="https://discord.gg/yourlink" class="link-card dc" target="_blank">Discord</a>
+            <a href="https://youtube.com/" class="link-card yt" target="_blank">YouTube</a>
+            <a href="https://github.com/" class="link-card gh" target="_blank">GitHub</a>
+            <a href="https://discord.com/" class="link-card dc" target="_blank">Discord</a>
         </div>
 
         <div class="footer">
-            Loaded in v1.0
+            SIGNAL STRENGTH: STABLE
         </div>
     </div>
 
