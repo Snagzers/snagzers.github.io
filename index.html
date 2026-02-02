@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snag | Linktree</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -11,7 +12,7 @@
             padding: 0;
         }
 
-        /* Moving Background Animation */
+        /* Trippy Porygon Background */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -20,10 +21,10 @@
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            /* Trippy moving gradient */
-            background: linear-gradient(-45deg, #f08a9d, #7dc9e2, #2d3436, #0984e3);
+            /* Magenta to Cyan Porygon Palette */
+            background: linear-gradient(-45deg, #ff00ff, #00ffff, #ff77ff, #77ffff);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 10s ease infinite;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,7 +36,7 @@
         .container {
             width: 100%;
             max-width: 420px;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             padding: 40px 25px;
@@ -82,12 +83,26 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        .fandoms {
-            margin-top: 10px;
+        .fandom-list {
+            margin-top: 15px;
             padding-top: 10px;
             border-top: 1px solid rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .fandom-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.85rem;
-            font-style: italic;
+        }
+
+        .fandom-item i {
+            width: 16px;
+            height: 16px;
+            color: #ff00ff;
         }
 
         .links-wrapper {
@@ -99,12 +114,21 @@
         .link-card {
             background: rgba(255, 255, 255, 0.9);
             color: #1a1a1a;
-            padding: 16px;
+            padding: 14px;
             border-radius: 15px;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             border: 1px solid transparent;
+        }
+
+        .link-card i {
+            width: 20px;
+            height: 20px;
         }
 
         .link-card:hover {
@@ -114,14 +138,15 @@
         }
 
         /* Link Brand Accents */
-        .yt:hover { border-left: 8px solid #FF0000; }
-        .gh:hover { border-left: 8px solid #24292e; }
-        .dc:hover { border-left: 8px solid #5865F2; }
+        .yt:hover { color: #FF0000; border-bottom: 3px solid #FF0000; }
+        .gh:hover { color: #24292e; border-bottom: 3px solid #24292e; }
+        .dc:hover { color: #5865F2; border-bottom: 3px solid #5865F2; }
 
         .footer {
             margin-top: 30px;
             font-size: 0.7rem;
             opacity: 0.5;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -136,21 +161,34 @@
         <div class="bio-box">
             Hey! I'm a coder who loves starting new projects (finishing them is a different story). I'm rarely online though... Man I need to improve! 
             
-            <div class="fandoms">
-                <b>Interests:</b> Pikmin, Deltarune/Undertale, Subnautica, & Space.
+            <div class="fandom-list">
+                <div class="fandom-item"><i data-lucide="flower-2"></i> Pikmin</div>
+                <div class="fandom-item"><i data-lucide="heart"></i> Deltarune</div>
+                <div class="fandom-item"><i data-lucide="waves"></i> Subnautica</div>
+                <div class="fandom-item"><i data-lucide="rocket"></i> Space</div>
             </div>
         </div>
 
         <div class="links-wrapper">
-            <a href="https://youtube.com/" class="link-card yt" target="_blank">YouTube</a>
-            <a href="https://github.com/" class="link-card gh" target="_blank">GitHub</a>
-            <a href="https://discord.com/" class="link-card dc" target="_blank">Discord</a>
+            <a href="https://youtube.com/" class="link-card yt" target="_blank">
+                <i data-lucide="youtube"></i> YouTube
+            </a>
+            <a href="https://github.com/" class="link-card gh" target="_blank">
+                <i data-lucide="github"></i> GitHub
+            </a>
+            <a href="https://discord.com/" class="link-card dc" target="_blank">
+                <i data-lucide="message-square"></i> Discord
+            </a>
         </div>
 
         <div class="footer">
-            Pretend this is important
+            PRETEND THIS IS IMPORTANT
         </div>
     </div>
 
+    <script>
+        // Initializes the icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
