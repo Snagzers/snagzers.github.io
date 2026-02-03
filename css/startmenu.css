@@ -1,0 +1,63 @@
+#start-menu {
+    position: absolute;
+    bottom: var(--taskbar-height);
+    left: 0;
+    width: 300px;
+    background: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 2px -2px 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1001;
+}
+
+.start-header {
+    background: linear-gradient(to right, #1841a1, #3a93ff);
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 2px solid var(--xp-orange);
+}
+
+.start-body {
+    display: flex;
+    height: 350px;
+}
+
+.start-apps {
+    width: 100%;
+    padding: 5px;
+    background: white;
+}
+
+.menu-item {
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.menu-item:hover {
+    background: #316ac5;
+    color: white;
+}
+
+.start-footer {
+    background: linear-gradient(to bottom, #4282d3, #245edb);
+    padding: 8px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#shutdown-btn {
+    background: var(--xp-orange);
+    border: 1px solid white;
+    color: white;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 3px;
+}
