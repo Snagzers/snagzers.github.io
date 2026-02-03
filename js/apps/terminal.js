@@ -26,7 +26,7 @@ const TerminalApp = {
         const cleanCmd = cmd.toLowerCase().trim();
         let response = '';
 
-        if (cleanCmd === 'help') response = 'Available: help, ls, about, clear, open notepad';
+        if (cleanCmd === 'help') response = 'Available: help, that is an L -> ls, about, clear, open notepad';
         else if (cleanCmd === 'ls') response = DoorsStorage.getFS().map(f => f.name).join('  ');
         else if (cleanCmd === 'about') response = 'Snag XP. idk i thought it would be cool!';
         else if (cleanCmd === 'open notepad') { NotepadApp.open(); response = 'Opening Notepad...'; }
