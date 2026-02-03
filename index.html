@@ -1,21 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Fake OS</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doors XP</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/windows.css">
+    <link rel="stylesheet" href="css/startmenu.css">
 </head>
 <body>
 
-  <div id="boot-screen">Booting...</div>
-
-  <div id="desktop" hidden>
-    <div id="taskbar">
-      <button id="start-btn">Start</button>
+    <div id="boot-screen" class="overlay">
+        <div class="boot-logo">
+            <div class="logo-box"></div>
+            <h1>Doors <span>XP</span></h1>
+        </div>
+        <div class="loading-bar"><div class="progress"></div></div>
+        <p>Starting Doors XP...</p>
     </div>
-  </div>
 
-  <script src="js/boot.js"></script>
-  <script src="js/desktop.js"></script>
+    <div id="desktop" class="hidden">
+        <div id="desktop-icons">
+            </div>
+
+        <div id="window-layer"></div>
+
+        <div id="taskbar">
+            <button id="start-button">
+                <span class="flag"></span> Doors
+            </button>
+            <div id="minimized-apps"></div>
+            <div id="system-tray">
+                <span id="clock">00:00</span>
+            </div>
+        </div>
+
+        <div id="start-menu" class="hidden">
+            <div class="start-header">User</div>
+            <div class="start-body">
+                <div class="start-apps">
+                    <div class="menu-item" data-app="explorer">My Doors</div>
+                    <div class="menu-item" data-app="notepad">Notepad</div>
+                    <div class="menu-item" data-app="terminal">Terminal</div>
+                    <div class="menu-item" data-app="settings">Settings</div>
+                </div>
+            </div>
+            <div class="start-footer">
+                <button id="shutdown-btn">Shut Down</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/windowManager.js"></script>
+    <script src="js/apps/notepad.js"></script>
+    <script src="js/apps/terminal.js"></script>
+    <script src="js/apps/explorer.js"></script>
+    <script src="js/apps/settings.js"></script>
+    <script src="js/taskbar.js"></script>
+    <script src="js/desktop.js"></script>
+    <script src="js/boot.js"></script>
 </body>
 </html>
