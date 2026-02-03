@@ -11,6 +11,6 @@ const NotepadApp = {
     save(name) {
         const content = document.getElementById('notepad-text').value;
         DoorsStorage.saveFile(name, content);
-        alert('File saved to My Doors');
+        alert('File saved to My Snag');
     }
 };
