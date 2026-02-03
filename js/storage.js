@@ -3,8 +3,8 @@ const DoorsStorage = {
         // Default Files
         if (!localStorage.getItem('doors_fs')) {
             const initialFS = [
-                { name: 'Welcome.txt', content: 'Welcome to Doors XP! It feels cozy here.', type: 'file' },
-                { name: 'ReadMe.txt', content: 'This OS runs entirely in your browser.', type: 'file' },
+                { name: 'Welcome.txt', content: 'Welcome to this unique get-to-know me site!.', type: 'file' },
+                { name: 'ReadMe.txt', content: 'This fake OS runs entirely in your browser!', type: 'file' },
                 { name: 'System', type: 'folder' }
             ];
             localStorage.setItem('doors_fs', JSON.stringify(initialFS));
