@@ -28,7 +28,7 @@ const TerminalApp = {
 
         if (cleanCmd === 'help') response = 'Available: help, ls, about, clear, open notepad';
         else if (cleanCmd === 'ls') response = DoorsStorage.getFS().map(f => f.name).join('  ');
-        else if (cleanCmd === 'about') response = 'Doors XP - A cozy vanilla JS operating system.';
+        else if (cleanCmd === 'about') response = 'Snag XP. idk i thought it would be cool!';
         else if (cleanCmd === 'open notepad') { NotepadApp.open(); response = 'Opening Notepad...'; }
         else if (cleanCmd === 'clear') { out.innerHTML = ''; return; }
         else response = `'${cmd}' is not recognized as a command.`;
