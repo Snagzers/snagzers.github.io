@@ -1,17 +1,16 @@
 const NotepadApp = {
-    open(fileName = 'Untitled.txt') {
-        const file = DoorsStorage.getFile(fileName) || { content: '' };
-        const content = `
-            <textarea id="notepad-text">${file.content}</textarea>
-            <div class="notepad-footer">
+    open(fileName = 'New Document.txt') {
+        const file = DoorsStorage.getFS().find(f => f.name === fileName) || { content: '' };
+        const win = WindowManager.createWindow('notepad', `Notepad - ${fileName}`, `
+            <textarea id="notepad-text" style="width:100%; height:200px; flex-grow:1;">${file.content}</textarea>
+            <div style="background:#eee; padding:5px; border-top:1px solid #ccc;">
                 <button onclick="NotepadApp.save('${fileName}')">Save</button>
             </div>
-        `;
-        WindowManager.createWindow('notepad', 'Notepad - ' + fileName, content);
+        `);
     },
-    save(fileName) {
-        const text = document.getElementById('notepad-text').value;
-        DoorsStorage.saveFile(fileName, text);
-        alert('File saved to LocalStorage!');
+    save(name) {
+        const content = document.getElementById('notepad-text').value;
+        DoorsStorage.saveFile(name, content);
+        alert('File saved to My Doors');
     }
 };
