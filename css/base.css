@@ -1,28 +1,71 @@
 :root {
     --xp-blue: #245edb;
+    --xp-blue-light: #3f8cf3;
     --xp-green: #3c873c;
     --xp-orange: #f4ad42;
-    --xp-light-blue: #ece9d8;
-    --taskbar-bg: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #1941a5 100%);
-    --start-bg: linear-gradient(to bottom, #5384e3 0%, #0030ad 100%);
+    --xp-bg-beige: #ece9d8;
+    --taskbar-height: 30px;
 }
 
-* { box-sizing: border-box; font-family: 'Tahoma', sans-serif; cursor: default; user-select: none; }
+* {
+    box-sizing: border-box;
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+    cursor: default;
+    user-select: none;
+}
 
-body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
 
 .hidden { display: none !important; }
 
-/* Boot Screen */
+/* Boot Screen Styles */
 #boot-screen {
-    height: 100%; width: 100%; background: #000; color: white;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    position: absolute;
 }
-.boot-logo h1 { font-size: 3rem; margin-bottom: 20px; font-weight: lighter; }
-.boot-logo span { color: var(--xp-orange); font-weight: bold; }
-.loading-bar { width: 200px; height: 15px; border: 2px solid #aaa; border-radius: 4px; overflow: hidden; }
-.progress { 
-    width: 30%; height: 100%; background: linear-gradient(90deg, #245edb, #3f8cf3);
-    animation: slide 2s infinite linear;
+
+.boot-logo h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 300;
 }
-@keyframes slide { from { transform: translateX(-100%); } to { transform: translateX(350%); } }
+
+.boot-logo span {
+    color: var(--xp-orange);
+    font-weight: bold;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 15px;
+    border: 2px solid #666;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.progress {
+    width: 40px;
+    height: 100%;
+    background: linear-gradient(90deg, #245edb, #3f8cf3, #245edb);
+    animation: boot-slide 2s infinite linear;
+}
+
+@keyframes boot-slide {
+    from { transform: translateX(-50px); }
+    to { transform: translateX(200px); }
+}
