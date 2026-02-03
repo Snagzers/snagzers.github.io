@@ -1,16 +1,22 @@
 const WindowManager = {
     zIndex: 100,
-    
+
     createWindow(id, title, contentHTML) {
-        if (document.getElementById(`win-${id}`)) {
-            this.bringToFront(document.getElementById(`win-${id}`));
-            return;
+        // If window exists, bring to front
+        const existing = document.getElementById(`win-${id}`);
+        if (existing) {
+            this.bringToFront(existing);
+            return existing;
         }
 
         const win = document.createElement('div');
         win.id = `win-${id}`;
         win.className = 'window';
         win.style.zIndex = ++this.zIndex;
+        // Start windows at a staggered offset
+        win.style.top = (100 + (this.zIndex % 10) * 20) + 'px';
+        win.style.left = (100 + (this.zIndex % 10) * 20) + 'px';
+
         win.innerHTML = `
             <div class="window-header">
                 <span class="title">${title}</span>
@@ -24,21 +30,25 @@ const WindowManager = {
 
         document.getElementById('window-layer').appendChild(win);
         this.makeDraggable(win);
-        
+
         win.querySelector('.close-btn').onclick = () => win.remove();
+        win.querySelector('.min-btn').onclick = () => win.style.display = 'none';
         win.onmousedown = () => this.bringToFront(win);
-        
+
         return win;
     },
 
     bringToFront(win) {
+        win.style.display = 'flex';
         win.style.zIndex = ++this.zIndex;
     },
 
     makeDraggable(win) {
         const header = win.querySelector('.window-header');
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
         header.onmousedown = (e) => {
+            e.preventDefault();
             pos3 = e.clientX;
             pos4 = e.clientY;
             document.onmouseup = () => {
